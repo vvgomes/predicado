@@ -17,11 +17,11 @@ import { validate } from "predicado";
 const validations = [
   {
     error: "Must have email.",
-    predicate: (user) => !!user.email
+    predicate: user => !!user.email
   },
   {
     error: "Must have password.",
-    predicate: (user) => !!user.password
+    predicate: user => !!user.password
   }
 ];
 
