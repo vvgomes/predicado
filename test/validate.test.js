@@ -11,7 +11,7 @@ describe("validate()", () => {
   const validations = [
     { error: "Name must be provided.", predicate: has("name") },
     { error: "Password must be provided.", predicate: has("password") },
-    { error: "Email must be in a valid format.", predicate: where({ email: test(/@/) })}
+    { error: "Email must be in a valid format.", predicate: where({ email: test(/@/) }) }
   ];
 
   it("results in success when all predicates are true", () => {
