@@ -26,15 +26,15 @@ const validations = [
 ];
 
 const validUser = {
-  email: "jd@gmail.com",
+  email: "johndoe@gmail.com",
   password: "cupcake"
 };
 
 console.log(validate(validUser, validations));
-// => Validation.Success({ email: "jd@gmail.com", password: "cupcake" })
+// => Validation.Success({ email: "johndoe@gmail.com", password: "cupcake" })
 
 const invalidUser = {
-  email: "jd@gmail.com"
+  email: "johndoe@gmail.com"
 };
 
 console.log(validate(invalidUser, validations));

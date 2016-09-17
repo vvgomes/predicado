@@ -1,6 +1,6 @@
 import assert from "assert";
 import Validation from "data.validation";
-import validate from "../lib/validate";
+import { validate } from "../lib/predicado";
 import { has, where, test } from "ramda";
 
 const Success = Validation.Success;
@@ -17,7 +17,7 @@ describe("validate()", () => {
   it("results in success when all predicates are true", () => {
     const user = {
       name: "John Doe",
-      email: "jd@gmail.com",
+      email: "johndoe@gmail.com",
       password: "cupcake"
     };
 
@@ -30,7 +30,7 @@ describe("validate()", () => {
   it("results in failure when some predicates are false", () => {
     const user = {
       name: "John Doe",
-      email: "jdgmail.com"
+      email: "johndoe.com"
     };
 
     assert.deepEqual(

@@ -2,7 +2,7 @@
   "name": "predicado",
   "version": "0.0.1",
   "description": "Predicate Driven Validations",
-  "main": "dist/validate.js",
+  "main": "dist/predicado.js",
   "author": "vvgomes",
   "license": "ISC",
   "repository": {
