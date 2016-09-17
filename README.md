@@ -14,6 +14,32 @@ $ npm install predicado --save
 ```javascript
 import { validate } from "predicado";
 
+const validations = [
+  {
+    error: "Must have email.",
+    predicate: (user) => !!user.email
+  },
+  {
+    error: "Must have password.",
+    predicate: (user) => !!user.password
+  }
+];
+
+const validUser = {
+  email: "jd@gmail.com",
+  password: "cupcake"
+};
+
+console.log(validate(validUser, validations));
+// => Validation.Success({ email: "jd@gmail.com", password: "cupcake" })
+
+const invalidUser = {
+  email: "jd@gmail.com"
+};
+
+console.log(validate(invalidUser, validations));
+// => Validation.Failure([ "Must have password." ])
+
 ```
 
 ## License
