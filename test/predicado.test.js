@@ -22,7 +22,7 @@ describe("validate()", () => {
     };
 
     assert.deepEqual(
-      validate(user, validations),
+      validate(validations, user),
       Success(user)
     );
   });
@@ -34,7 +34,7 @@ describe("validate()", () => {
     };
 
     assert.deepEqual(
-      validate(user, validations),
+      validate(validations, user),
       Failure([
         "Password must be provided.",
         "Email must be in a valid format."
