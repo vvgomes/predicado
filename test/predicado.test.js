@@ -8,11 +8,11 @@ const Failure = Validation.Failure;
 
 describe("validate()", () => {
 
-  const validations = [
+  const validateUser = validate([
     { error: "Name must be provided.", predicate: has("name") },
     { error: "Password must be provided.", predicate: has("password") },
     { error: "Email must be in a valid format.", predicate: where({ email: test(/@/) }) }
-  ];
+  ]);
 
   it("results in success when all predicates are true", () => {
     const user = {
@@ -22,7 +22,7 @@ describe("validate()", () => {
     };
 
     assert.deepEqual(
-      validate(validations, user),
+      validateUser(user),
       Success(user)
     );
   });
@@ -34,7 +34,7 @@ describe("validate()", () => {
     };
 
     assert.deepEqual(
-      validate(validations, user),
+      validateUser(user),
       Failure([
         "Password must be provided.",
         "Email must be in a valid format."
