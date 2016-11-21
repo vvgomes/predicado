@@ -58,7 +58,7 @@ From there you can manipulate the results by following the [`Validation`](https:
 
 ```javascript
 const onSuccess = user => "This user is totally valid!";
-const onFailure = errors => "A valid user:\n" + errors.map(e => "* "+e".").join("\n");
+const onFailure = errors => "A valid user:\n" + errors.map(e => "* " + e).join("\n");
 const message = validate(validations, invalidUser).fold(onFailure, onSuccess);
 console.log(message);
 // => A valid user:
