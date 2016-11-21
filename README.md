@@ -50,11 +50,11 @@ In summary, the `validate` function can be described as:
 validate :: (validations, target) -> Validation
 ```
 
-Its first argument `validations` is an array of validation objects, each containing an `error` property and a `predicate` property. An error could be any arbitrary object of function that will populate the validation results in case of failure. The predicate is a function to be called agains the `target` data structure. In the example above, there are two validations, one for checking the presence of an email property and another for check the presence of a password property in the target data structure.
+Its first argument `validations` is an array of validation objects, each containing an `error` property and a `predicate` property. An error could be any arbitrary object of function that will populate the validation results in case of failure. The predicate is a function to be called agains the `target` data structure. In the example above, there are two validations, one for checking the presence of an email property and another for check the presence of a password property in the target object.
 
-The result returned by the `validation` function is a [`Validation`]() container. This container is has two possible subtypes: `Success` or `Failure`. When all the predicates passed to `validate` are `true`, then the function returns a `Success` instance with the target object in it. Otherwise, it returns a `Failure` instance which holds a list of all the corresponding errors.
+The result returned by the `validation` function is a [`Validation`](https://github.com/folktale/data.validation) container. The `Validation` concrete instances are of two possible subtypes: `Success` or `Failure`. When all of the predicates are `true` for a given target then the `validate` returns a `Success` instance with the target object in it. Otherwise, it returns a `Failure` instance which holds a list of all the corresponding errors.
 
-From there, you can manipulate the results by following the [`Validation`]() API. Here is an example:
+From there you can manipulate the results by following the [`Validation`](https://github.com/folktale/data.validation) API. Here is an example:
 
 ```javascript
 const onSuccess = user => "This user is totally valid!";
@@ -68,7 +68,7 @@ console.log(message);
 
 ## Autocurry
 
-The `validate` interface [favors curry](), so that you can define your custom validation functions in a [point-free]() way:
+The `validate` interface [favors curry](http://fr.umio.us/favoring-curry/), so that you can define your custom validation functions in a [point-free](https://wiki.haskell.org/Pointfree) way:
 
 ```javascript
 import { validate } from "predicado";
