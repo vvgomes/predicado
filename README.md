@@ -50,16 +50,18 @@ In summary, the `validate` function can be described as:
 validate :: (validations, target) -> Validation
 ```
 
-Its first argument `validations` is an array of validation objects, each containing an `error` property and a `predicate` property. An error could be any arbitrary object of function that will populate the validation results in case of failure. The predicate is a function to be called agains the `target` data structure. In the example above, there are two validations, one for checking the presence of an email property and another for check the presence of a password property in the target object.
+Its first argument `validations` is an array of validation objects, each containing an `error` property and a `predicate` property. An error could be any arbitrary object of function that will populate the validation results in case of failure. The predicate is a function to be called agains the `target` data structure. In the example above, there are two validations, one to check the presence of an email property and another one to check the presence of a password property in the target object.
 
-The result returned by the `validation` function is a [`Validation`](https://github.com/folktale/data.validation) container. The `Validation` concrete instances are of two possible subtypes: `Success` or `Failure`. When all of the predicates are `true` for a given target then the `validate` returns a `Success` instance with the target object in it. Otherwise, it returns a `Failure` instance which holds a list of all the corresponding errors.
+The result returned by the `validation` function is a [`Validation`](https://github.com/folktale/data.validation) container. The `Validation` concrete instances are of two possible subtypes: `Success` or `Failure`. When all of the predicates are `true` for a given target then `validate` returns a `Success` instance wrapping the target object. Otherwise it returns a `Failure` instance holding a list of all the corresponding errors.
 
-From there you can manipulate the results by following the [`Validation`](https://github.com/folktale/data.validation) API. Here is an example:
+From there you can manipulate the validation result by following the [`Validation`](https://github.com/folktale/data.validation) API. Here is an example:
 
 ```javascript
 const onSuccess = user => "This user is totally valid!";
 const onFailure = errors => "A valid user:\n" + errors.map(e => "* " + e).join("\n");
+
 const message = validate(validations, invalidUser).fold(onFailure, onSuccess);
+
 console.log(message);
 // => A valid user:
 // => * Must have an email.
