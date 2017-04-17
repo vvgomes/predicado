@@ -41,4 +41,16 @@ describe("validate()", () => {
       ])
     );
   });
+
+  it("results in success when there are not validations", () => {
+    const user = {
+      name: "John Doe",
+      email: "johndoe.com"
+    };
+
+    assert.deepEqual(
+      validate([], user),
+      Success(user)
+    );
+  });
 });

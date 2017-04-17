@@ -1,6 +1,6 @@
 {
   "name": "predicado",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Predicate Driven Validations",
   "main": "dist/predicado.js",
   "author": "vvgomes",
